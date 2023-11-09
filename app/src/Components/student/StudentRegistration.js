@@ -75,7 +75,7 @@ const StudentRegistration = () => {
       event.preventDefault();
       console.log(studentDetails)
       if (validateForm()){
-        await fetch('http://localhost:6969/student/register', {
+        await fetch('https://schoolcool-backend-tov4.onrender.com/student/register', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',

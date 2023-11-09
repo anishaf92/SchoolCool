@@ -8,6 +8,7 @@ import GetAnnouncements from "../components/GetAnnouncements";
 import TeacherProfile from "./TeacherProfile";
 import Marks from "./Marks";
 import UpdateAttendance from "./UpdateAttendance";
+import useAuth from "../auth/AuthContext";
 
 
 const TeacherDashboard = (props) => {
@@ -18,10 +19,15 @@ const TeacherDashboard = (props) => {
   const [showMenu,setShowMenu] = useState(false)
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const {
+    setAuthUser,
+    setIsLoggedIn } = useAuth();
   
   const logout = () =>{
     dispatch(logoutTeacher());
     persistor.purge();
+    setIsLoggedIn(false)
+    setAuthUser(null)
     navigate("/teacher")
   }
 

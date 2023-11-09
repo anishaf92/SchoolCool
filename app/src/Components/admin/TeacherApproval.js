@@ -10,13 +10,13 @@ const TeacherApproval = () => {
   
     
     useEffect(() =>{
-        fetch('http://localhost:6969/admin/teacherapproval')
+        fetch('https://schoolcool-backend-tov4.onrender.com/admin/teacherapproval')
         .then(response => {return response.json()})
         .then((data)=> setPendingApprovals(data))
     },[result]);
     const handleApproval = (id) =>{
       console.log(id,token)
-      fetch(`http://localhost:6969/admin/approveteacher/${id}`,{
+      fetch(`https://schoolcool-backend-tov4.onrender.com/admin/approveteacher/${id}`,{
         method: 'GET',
         headers:{'Authorization': `${token}`}
       })
@@ -29,7 +29,7 @@ const TeacherApproval = () => {
     }
     const handleDelete = (id) =>{
       console.log(id)
-      fetch(`http://localhost:6969/admin/deleteteacher/${id}`,{
+      fetch(`https://schoolcool-backend-tov4.onrender.com/admin/deleteteacher/${id}`,{
         method: 'DELETE',
         headers:{'Authorization': `${token}`}
         })

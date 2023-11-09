@@ -57,7 +57,7 @@ const ParentRegistration = () => {
       console.log(parentDetails)
       
       if (validateForm()){
-        await fetch('http://localhost:6969/parent/register', {
+        await fetch('https://schoolcool-backend-tov4.onrender.com/parent/register', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',

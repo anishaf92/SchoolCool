@@ -40,7 +40,7 @@ const TeacherRegistration = () => {
   }
 
   useEffect (() => {
-    fetch ('http://localhost:6969/teacher/getuniquesubjects')
+    fetch ('https://schoolcool-backend-tov4.onrender.com/teacher/getuniquesubjects')
       .then (response => {
         console.log (response);
         return response.json ();
@@ -100,7 +100,7 @@ const TeacherRegistration = () => {
     event.preventDefault();
     console.log(teacherDetails)
     if (validateForm()){
-      await fetch('http://localhost:6969/teacher/register', {
+      await fetch('https://schoolcool-backend-tov4.onrender.com/teacher/register', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

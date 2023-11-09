@@ -9,7 +9,7 @@ const GetAnnouncements = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    fetch("http://localhost:6969/admin/getannouncements")
+    fetch("https://schoolcool-backend-tov4.onrender.com/admin/getannouncements")
       .then((response) => response.json())
       .then((data) => {
         setAnnouncementList(data);

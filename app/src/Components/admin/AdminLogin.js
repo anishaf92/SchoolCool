@@ -23,7 +23,7 @@ const AdminLogin = () => {
     try {
       console.log (userName, password);
       if (validateForm ()) {
-        await fetch ('http://localhost:6969/admin/login', {
+        await fetch ('https://schoolcool-backend-tov4.onrender.com/admin/login', {
           method: 'POST',
           headers: {
             Accept: 'application/json',

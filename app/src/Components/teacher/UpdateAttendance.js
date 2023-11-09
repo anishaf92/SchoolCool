@@ -13,7 +13,7 @@ const UpdateAttendance = (props) => {
     const [grade, setGrade] = useState(0);
     const [success,setSuccess] = useState(false)
     const getSubjects = async () =>{
-    await fetch("http://localhost:6969/teacher/getSubjects", {
+    await fetch("https://schoolcool-backend-tov4.onrender.com/teacher/getSubjects", {
     method: 'POST', 
     headers: {
       'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ const UpdateAttendance = (props) => {
       })
   }
   const getStudentsList = async () => {
-      await fetch(`http://localhost:6969/api/studentsByGrade/${grade}`)
+      await fetch(`https://schoolcool-backend-tov4.onrender.com/api/studentsByGrade/${grade}`)
       .then((response) => {
           return response.json()
       })
@@ -47,7 +47,7 @@ const UpdateAttendance = (props) => {
     const updateAttendance = async () => {
 
       try {
-        const response = await fetch("http://localhost:6969/teacher/updateAttendance", {
+        const response = await fetch("https://schoolcool-backend-tov4.onrender.com/teacher/updateAttendance", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

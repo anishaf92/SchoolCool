@@ -18,14 +18,14 @@ const AssignTeacher = () => {
     const grades = [1,2,3,4,5,6,7,8,9,10]
     
     const getSubjects = async () => {
-        await fetch("http://localhost:6969/admin/getsubjects")
+        await fetch("https://schoolcool-backend-tov4.onrender.com/admin/getsubjects")
         .then((response) =>{
           console.log(response)
           return response.json();
           }).then(data => setSubjectList(data)) 
     } 
     const getTeachers = async () => {
-        await fetch("http://localhost:6969/teacher/getteachers")
+        await fetch("https://schoolcool-backend-tov4.onrender.com/teacher/getteachers")
         .then((response) =>{
           console.log(response)
           return response.json();
@@ -47,7 +47,7 @@ const AssignTeacher = () => {
     }
     const updateTeacherData = async (id) =>{
       console.log("inside update",id,teacher)
-      await fetch(`http://localhost:6969/teacher/updateTeacher/${teacher}`, {
+      await fetch(`https://schoolcool-backend-tov4.onrender.com/teacher/updateTeacher/${teacher}`, {
         method: 'PATCH',
         headers: {
           'Accept': 'application/json',
@@ -64,7 +64,7 @@ const AssignTeacher = () => {
 
     }
     const assignTeacher = async (id) => {
-      await fetch("http://localhost:6969/teacher/update", {
+      await fetch("https://schoolcool-backend-tov4.onrender.com/teacher/update", {
         method: 'PATCH',
         headers: {
           'Accept': 'application/json',

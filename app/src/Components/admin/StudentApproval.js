@@ -12,14 +12,14 @@ const StudentApproval = () => {
     
     useEffect(() =>{
         console.log(admin,token)
-        fetch('http://localhost:6969/admin/studentapproval',)
+        fetch('https://schoolcool-backend-tov4.onrender.com/admin/studentapproval',)
         .then(response => {return response.json()})
         .then((data)=> setPendingApprovals(data))
         // eslint-disable-next-line
     },[result]);
     const handleApproval = (id) =>{
       console.log(id)
-      fetch(`http://localhost:6969/admin/approvestudent/${id}`,
+      fetch(`https://schoolcool-backend-tov4.onrender.com/admin/approvestudent/${id}`,
       {
         headers:{"Authorization" : `${token}`}
       }
@@ -33,7 +33,7 @@ const StudentApproval = () => {
     }
     const handleDelete = (id) =>{
       console.log(id,token)
-      fetch(`http://localhost:6969/admin/deletestudent/${id}`,{
+      fetch(`https://schoolcool-backend-tov4.onrender.com/admin/deletestudent/${id}`,{
         method: 'DELETE',
         headers:{'Authorization': `${token}`}
         })

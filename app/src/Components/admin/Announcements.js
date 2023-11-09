@@ -12,7 +12,7 @@ const Announcements = () => {
     const handleAnnouncement = async () =>{
       console.log("Inside handle announcemnt", token)
       const id = localStorage.getItem("user")
-      await fetch('http://localhost:6969/admin/announcement', {
+      await fetch('https://schoolcool-backend-tov4.onrender.com/admin/announcement', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -32,7 +32,7 @@ const Announcements = () => {
   }
   const handleDelete = async (e,id) => {
     e.preventDefault();
-    await fetch(`http://localhost:6969/admin/deleteAnnouncement/${id}`, {
+    await fetch(`https://schoolcool-backend-tov4.onrender.com/admin/deleteAnnouncement/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `${token}`
       }
@@ -49,7 +49,7 @@ const Announcements = () => {
   
     useEffect( () => {
 
-      fetch('http://localhost:6969/admin/getannouncements')
+      fetch('https://schoolcool-backend-tov4.onrender.com/admin/getannouncements')
       .then((response) =>{
         return response.json()
       })

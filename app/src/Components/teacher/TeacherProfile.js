@@ -68,7 +68,7 @@ const TeacherProfile = () => {
     if(validateForm()){
     
     try {
-        const response = await fetch(`http://localhost:6969/teacher/updateInfo/${teacher._id}`, {
+        const response = await fetch(`https://schoolcool-backend-tov4.onrender.com/teacher/updateInfo/${teacher._id}`, {
           method: 'PATCH',
           headers: {
             'Accept': 'application/json',

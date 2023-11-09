@@ -23,7 +23,7 @@ const TeacherLogin = () => {
     console.log("inside handle submit")
     console.log({empNo:empNo,password:password})
       try {
-        const response = await fetch(`http://localhost:6969/teacher/login`, {
+        const response = await fetch(`https://schoolcool-backend-tov4.onrender.com/teacher/login`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',

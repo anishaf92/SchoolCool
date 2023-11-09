@@ -11,7 +11,7 @@ const EditSubject = () => {
   const grades = [1,2,3,4,5,6,7,8,9,10]
   
   useEffect(() => {
-    fetch("http://localhost:6969/admin/getsubjects")
+    fetch("https://schoolcool-backend-tov4.onrender.com/admin/getsubjects")
     .then((response) =>{
       console.log(response)
       return response.json();
@@ -20,7 +20,7 @@ const EditSubject = () => {
     
   },[refresh]);
   const addSubject = async () => {
-    await fetch("http://localhost:6969/admin/addsubject", {
+    await fetch("https://schoolcool-backend-tov4.onrender.com/admin/addsubject", {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -40,7 +40,7 @@ const EditSubject = () => {
 
   }
   const handleSubjectDelete = async(id) =>{
-    await fetch(`http://localhost:6969/admin/deletesubject/${id}`,{
+    await fetch(`https://schoolcool-backend-tov4.onrender.com/admin/deletesubject/${id}`,{
       method:'DELETE',
       header:{'Authorization': `${token}`}
     })

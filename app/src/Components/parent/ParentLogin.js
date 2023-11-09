@@ -24,7 +24,7 @@ const ParentLogin = () => {
     async function fetchStudent(admissionNo,token){
       console.log(admissionNo)
     try{
-      await fetch(`http://localhost:6969/student/getDetails/${admissionNo}`)
+      await fetch(`https://schoolcool-backend-tov4.onrender.com/student/getDetails/${admissionNo}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data.student)
@@ -44,7 +44,7 @@ const ParentLogin = () => {
     console.log({mobileNo:mobileNo,password:password})
 
       try {
-        const response = await fetch('http://localhost:6969/parent/login', {
+        const response = await fetch('https://schoolcool-backend-tov4.onrender.com/parent/login', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',

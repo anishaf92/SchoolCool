@@ -28,7 +28,7 @@ const CheckAttendance = () => {
   };
 
   const getSubjectsByGrade = async () => {
-    await fetch(`http://localhost:6969/api/subjectsByGrade/${student.grade}`)
+    await fetch(`https://schoolcool-backend-tov4.onrender.com/api/subjectsByGrade/${student.grade}`)
       .then((response) => {
         return response.json();
       })
@@ -53,7 +53,7 @@ const CheckAttendance = () => {
   };
   const handleGetAttendance = async () => {
     try {
-      await fetch(`http://localhost:6969/api/fetchAttendance/${student.admissionNo}`)
+      await fetch(`https://schoolcool-backend-tov4.onrender.com/api/fetchAttendance/${student.admissionNo}`)
         .then((response) => response.json())
         .then((data) => {
           setAttendanceData(data.attendanceData);
