@@ -17,10 +17,7 @@ import ParentDashboard from "./Components/parent/ParentDashboard";
 import Home from "./Components/pages/Home";
 
  function App () {
-  const {authUser,
-    setAuthUser,
-    isLoggedIn,
-    setIsLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
   
    return (
       <div>        

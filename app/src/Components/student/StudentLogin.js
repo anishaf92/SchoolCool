@@ -16,9 +16,8 @@ const StudentLogin = () => {
   const location = useLocation();
   
   const registrationSuccess = location.state?.registrationSuccess;
-  const {authUser,
+  const {
     setAuthUser,
-    isLoggedIn,
     setIsLoggedIn } = useAuth();
 
   async function handleSubmit (e) {

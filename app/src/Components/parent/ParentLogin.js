@@ -10,6 +10,7 @@ import "../../Css/login.css";
 const ParentLogin = () => {
   const [mobileNo, setMobileNo] = useState ('');
   const [password, setPassword] = useState ('');
+  // eslint-disable-next-line
   const [parentDetails, setParentDetails] = useState({})
   const [error,setError] = useState(false);
   const navigate =useNavigate();
@@ -17,9 +18,8 @@ const ParentLogin = () => {
   const location = useLocation();
   const registrationSuccess = location.state?.registrationSuccess;
 
-  const {authUser,
+  const {
     setAuthUser,
-    isLoggedIn,
     setIsLoggedIn } = useAuth();
     async function fetchStudent(admissionNo,token){
       console.log(admissionNo)

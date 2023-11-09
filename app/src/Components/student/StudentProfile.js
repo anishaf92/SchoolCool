@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from 'react-redux';
-import { useNavigate } from "react-router-dom"
 import moment from "moment";
 
 
 const StudentProfile = () => {
   const student = useSelector((state) => state.student.student);
+  // eslint-disable-next-line
   const token = useSelector((state) => state.student.token);
-  const navigate = useNavigate();
+ 
   
   return (
     <div className="table-container">

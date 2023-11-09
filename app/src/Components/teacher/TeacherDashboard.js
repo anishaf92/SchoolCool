@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector,useDispatch } from 'react-redux';
 import { logoutTeacher } from "../../reducers/teacherReducer";
 import { useNavigate ,Link} from "react-router-dom";
@@ -12,8 +12,9 @@ import UpdateAttendance from "./UpdateAttendance";
 
 const TeacherDashboard = (props) => {
   const teacher = useSelector((state) => state.teacher.teacher);
+  // eslint-disable-next-line
   const token = useSelector((state) => state.teacher.token);
-  const [showUI , setShowUI] = useState("Home");
+
   const [showMenu,setShowMenu] = useState(false)
   const navigate = useNavigate();
   const dispatch = useDispatch();

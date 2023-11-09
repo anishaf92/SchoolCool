@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import BarChart from "../charts/BarChart";
 import LineChart from "../charts/LineChart"; 
-import { persistor } from '../../app/store';
-import {useNavigate} from "react-router-dom";
+
 
 const ViewMarks = (props) => {
   const exams = ["midTerm1", "midTerm2", "midTerm3", "quarterly", "halfYearly", "finalExam"];
@@ -11,9 +10,7 @@ const ViewMarks = (props) => {
   const [selectedSubject, setSelectedSubject] = useState("");
   const [selectedExam, setSelectedExam] = useState("");
   const [subjects,setSubjects] =  useState([])
-  const navigate = useNavigate();
   const student = useSelector((state) => state.student.student);
-  const token = useSelector((state) => state.student.token);
   const getSubjectsByGrade = async () => {
     await fetch(`http://localhost:6969/api/subjectsByGrade/${student.grade}`)
       .then((response) => {
@@ -31,6 +28,7 @@ const ViewMarks = (props) => {
   
   useEffect(() => {
     getSubjectsByGrade();
+    // eslint-disable-next-line
   },[])
   
   const handleSubjectChange = (e) => {

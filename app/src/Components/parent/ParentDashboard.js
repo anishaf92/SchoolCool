@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { useSelector,useDispatch } from 'react-redux';
 import { logoutStudent } from "../../reducers/studentReducer";
 import { useNavigate,Link} from "react-router-dom";
@@ -13,13 +13,12 @@ import CheckAttendance from "../student/CheckAttendance";
 
 const StudentDashboard = (props) => {
   const student = useSelector((state) => state.student.student);
-  const token = useSelector((state) => state.student.token);
+ 
   const [showMenu,setShowMenu] = useState(false)
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {authUser,
+  const {
     setAuthUser,
-    isLoggedIn,
     setIsLoggedIn } = useAuth();
   
   const logout = () =>{
@@ -47,11 +46,11 @@ const handleMenu = () => {
         
         <ul>
             <li>
-              <a className="toggle" onClick={(e) => handleMenu()}>
+              <div className="toggle" onClick={(e) => handleMenu()}>
                     <span className="icon"><i class="fas fa-bars"></i></span>
                     <span className="title"></span>
                     
-                </a>
+                </div>
             </li>
            
             <li>

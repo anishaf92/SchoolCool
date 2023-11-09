@@ -1,21 +1,20 @@
 import React,{useEffect,useState} from "react";
 import TeacherList from "../components/TeacherList";
 import {useSelector} from "react-redux";
-import {useNavigate} from "react-router-dom";
 
 
 const AssignTeacher = () => {
-  const admin = useSelector((state) => state.admin.admin);
   const token = useSelector((state) => state.admin.token);
-  
+    // eslint-disable-next-line
     const [subject,setSubject] = useState("")
+    // eslint-disable-next-line
     const [teacherName, setTeacherName] = useState("")
+    // eslint-disable-next-line
     const [grade,setGrade] = useState(1)
     const [subjectList,setSubjectList] = useState([])
     const [teacherList,setTeacherList] = useState([])
     const [teacher,setTeacher] = useState(0)
     const [refresh,setRefresh] = useState(true)
-    const navigate = useNavigate();
     const grades = [1,2,3,4,5,6,7,8,9,10]
     
     const getSubjects = async () => {
@@ -40,7 +39,7 @@ const AssignTeacher = () => {
         getSubjects();
         getTeachers();
         console.log(teacherList)
-       
+       // eslint-disable-next-line
     },[refresh]);
     function getTeacher(id){
         setTeacher(id)

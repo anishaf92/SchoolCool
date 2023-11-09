@@ -25,6 +25,7 @@ const corsOptions = {
 };
 
 
+const PORT  = process.env.PORT || 3000;
 app.use(cors(corsOptions));
 
 app.use (express.urlencoded ({extended: true}));
@@ -56,7 +57,11 @@ app.use("/parent", parent);
 app.use("/",home)
 
 
-server.listen(6969, () => {
+if(process.env.NODE.ENV == "production"){
+  app.use(express.static("app/build"));
+}
+
+server.listen(PORT, () => {
   console.log ('listening');
 })
 

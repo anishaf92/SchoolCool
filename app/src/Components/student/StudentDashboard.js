@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector,useDispatch } from 'react-redux';
 import { logoutStudent } from "../../reducers/studentReducer";
-import { useNavigate, useLocation,Link} from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import "../../Css/dashboard.css";
 import { persistor } from '../../app/store';
 import GetAnnouncements from "../components/GetAnnouncements";
@@ -14,13 +14,13 @@ import  useAuth  from "../auth/AuthContext";
 
 const StudentDashboard = (props) => {
   const student = useSelector((state) => state.student.student);
+  // eslint-disable-next-line
   const token = useSelector((state) => state.student.token);
   const [showMenu,setShowMenu] = useState(false)
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {authUser,
+  const {
     setAuthUser,
-    isLoggedIn,
     setIsLoggedIn } = useAuth();
     
   
@@ -50,11 +50,11 @@ const handleMenu = () => {
         
         <ul>
             <li>
-              <a className="toggle" onClick={(e) => handleMenu()}>
+              <div className="toggle" onClick={(e) => handleMenu()}>
                     <span className="icon"><i class="fas fa-bars"></i></span>
                     <span className="title"></span>
                     
-                </a>
+                </div>
             </li>
            
             <li>

@@ -1,16 +1,14 @@
 import React,{useEffect, useState} from "react";
 import { useSelector } from "react-redux";
-import {useNavigate} from "react-router-dom";
+
 
 const EditSubject = () => {
-  const admin = useSelector((state) => state.admin.admin);
   const token = useSelector((state) => state.admin.token);
   const [subject,setSubject] = useState("")
   const [grade,setGrade] = useState("")
   const [subjectList,setSubjectList] = useState([])
   const [refresh, setRefresh] = useState(false);
   const grades = [1,2,3,4,5,6,7,8,9,10]
-  const navigate = useNavigate();
   
   useEffect(() => {
     fetch("http://localhost:6969/admin/getsubjects")

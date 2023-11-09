@@ -12,9 +12,8 @@ const AdminLogin = () => {
   const [error, setError] = useState (false);
   const navigate = useNavigate ();
   const dispatch = useDispatch ();
-  const {authUser,
+  const {
     setAuthUser,
-    isLoggedIn,
     setIsLoggedIn } = useAuth();
   function validateForm () {
     return userName.length > 0 && password.length > 0;

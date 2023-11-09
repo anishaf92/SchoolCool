@@ -1,13 +1,13 @@
 import React, { useEffect ,useState} from "react";
 import { useSelector  } from "react-redux";
-import { useNavigate } from "react-router-dom";
+
 
 const TeacherApproval = () => {
-  const admin = useSelector((state) => state.admin.admin);
+
   const token = useSelector((state) => state.admin.token);
     const [pendingApprovals,setPendingApprovals] = useState([]);
     const [result,setResult] = useState(false);
-    const navigate = useNavigate();
+  
     
     useEffect(() =>{
         fetch('http://localhost:6969/admin/teacherapproval')

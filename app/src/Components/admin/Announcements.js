@@ -1,17 +1,14 @@
 import React,{ useEffect, useState } from "react";
-import {useNavigate} from "react-router-dom";
 import { useSelector } from "react-redux";
 
 
 const Announcements = () => {
-  const admin = useSelector((state) => state.admin.admin);
   const token = useSelector((state) => state.admin.token);
   
     const [title,setTitle] = useState("");
     const [content,setContent] = useState("");
     const [refresh,setRefresh] = useState(false)
     const [announcementList,setAnnouncementList] = useState([])
-    const navigate = useNavigate();
     const handleAnnouncement = async () =>{
       console.log("Inside handle announcemnt", token)
       const id = localStorage.getItem("user")

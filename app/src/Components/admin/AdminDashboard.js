@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector,useDispatch } from 'react-redux';
 import { useNavigate,Link} from "react-router-dom";
 import "../../Css/dashboard.css";
@@ -15,10 +15,8 @@ import useAuth from "../auth/AuthContext";
 const AdminDashboard = () => {
   const admin = useSelector((state) => state.admin.admin);
   const [showMenu,setShowMenu] = useState(false)
-  const [showUI,setShowUI] = useState("Home")
-  const {authUser,
+  const {
     setAuthUser,
-    isLoggedIn,
     setIsLoggedIn } = useAuth();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -45,11 +43,11 @@ const AdminDashboard = () => {
           <div className = "welcome-text">Welcome { admin === undefined ? <></> : admin.userName} !!!</div>
         <ul>
           <li>
-              <a className="toggle" onClick={(e) => handleMenu()}>
+              <div className="#toggle" onClick={(e) => handleMenu()}>
                     <span className="icon"><i class="fas fa-bars"></i></span>
                     <span className="title"></span>
                     
-                </a>
+                </div>
             </li>
            
             <li>

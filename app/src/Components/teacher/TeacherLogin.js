@@ -13,9 +13,8 @@ const TeacherLogin = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const registrationSuccess = location.state?.registrationSuccess;
-  const {authUser,
+  const {
     setAuthUser,
-    isLoggedIn,
     setIsLoggedIn } = useAuth();
   
 

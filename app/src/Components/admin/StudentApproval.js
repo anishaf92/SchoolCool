@@ -1,6 +1,6 @@
 import React, { useEffect ,useState} from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+
 
 
 const StudentApproval = () => {
@@ -8,13 +8,14 @@ const StudentApproval = () => {
     const [result,setResult] = useState(false)
     const admin = useSelector((state) => state.admin.admin);
     const token = useSelector((state) => state.admin.token);
-    const navigate = useNavigate();
+   
     
     useEffect(() =>{
         console.log(admin,token)
         fetch('http://localhost:6969/admin/studentapproval',)
         .then(response => {return response.json()})
         .then((data)=> setPendingApprovals(data))
+        // eslint-disable-next-line
     },[result]);
     const handleApproval = (id) =>{
       console.log(id)

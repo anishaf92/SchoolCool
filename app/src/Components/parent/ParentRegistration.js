@@ -12,7 +12,6 @@ const ParentRegistration = () => {
     })
     const [passwordError, setPasswordError] = useState(false)
     const [phoneError, setPhoneError] = useState(false)
-    const [refresh,setRefresh] = useState(true)
     const [registrationSuccess, setRegistrationSuccess] = useState(false);
    
   const navigate = useNavigate();

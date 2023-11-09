@@ -5,11 +5,14 @@ import { Pie } from "react-chartjs-2";
 
 const CheckAttendance = () => {
   const student = useSelector((state) => state.student.student);
+  // eslint-disable-next-line
   const [admissionNo, setAdmissionNo] = useState(student.admissionNo);
+  // eslint-disable-next-line
   const [grade, setGrade] = useState(student.grade);
   const [attendanceData, setAttendanceData] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [presentCount, setPresentCount] = useState(0);
+  // eslint-disable-next-line
   const [selectedSubject, setSelectedSubject] = useState("");
   const [showAttendance, setShowAttendance] = useState(false);
   const [subjects, setSubjects] = useState([]);
@@ -65,6 +68,7 @@ const CheckAttendance = () => {
 
   useEffect(() => {
     getSubjectsByGrade();
+    // eslint-disable-next-line
   }, []);
 
   return (

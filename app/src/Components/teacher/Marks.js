@@ -1,7 +1,5 @@
 import React,{useEffect,useState} from "react";
-import { useSelector,useDispatch } from 'react-redux';
-import { persistor } from '../../app/store';
-import {useNavigate} from "react-router-dom";
+import { useSelector } from 'react-redux';
 import "../../Css/dashboard.css"
 
 
@@ -87,6 +85,7 @@ const handleMarkChange = (studentId, value) => {
 useEffect (() =>{
     
     getSubjects();
+    // eslint-disable-next-line
   },[]);
   return (
     <div>

@@ -71,6 +71,7 @@ const UpdateAttendance = (props) => {
   useEffect (() =>{
       
       getSubjects();
+      // eslint-disable-next-line
     },[]);
     return (
       <div>
