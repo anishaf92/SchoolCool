@@ -40,7 +40,9 @@ This is a School Management System application built using MERN stack.Please fol
 
 - Can add subjects to any grade if required
 
-- Has the authority to assign teacher for particular grade and subject , based on teacher's qualification
+- Has the authority to assign teacher for particular grade and subject , based on teacher's subjects entered while registering.
+
+- For academic purpose Admin userName: admin1 Passoword: schoolcool
 
 [Working Demo](https://654c5984b5dcf726a4942752--gentle-snickerdoodle-a87926.netlify.app/)
 
