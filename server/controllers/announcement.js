@@ -2,8 +2,9 @@ import Announcement from '../models/announcement.js';
 export const getAnnouncements = () => {
   return Announcement.find().sort({createdAt:-1});
 };
-export const createAnnouncement = ({title, content, createdBy}) => {
-  Announcement.create ({title, content, createdBy})
+export const createAnnouncement = (title, content, createdBy) => {
+  console.log(title, content, createdBy)
+  Announcement.create ({title:title, content:content, createdBy:createdBy})
     .then (result => {
       console.log ('Create successful', result);
       return result;

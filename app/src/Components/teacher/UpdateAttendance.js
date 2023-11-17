@@ -11,9 +11,10 @@ const UpdateAttendance = (props) => {
     const [date, setDate] = useState("");
     const [attendanceData, setAttendanceData] = useState([])
     const [grade, setGrade] = useState(0);
-    const [success,setSuccess] = useState(false)
+    const [success,setSuccess] = useState(false);
+    const url = process.env.REACT_APP_BASE_URL;
     const getSubjects = async () =>{
-    await fetch("https://schoolcool-backend-tov4.onrender.com/teacher/getSubjects", {
+    await fetch(`${url}/teacher/getSubjects`, {
     method: 'POST', 
     headers: {
       'Content-Type': 'application/json',
@@ -29,7 +30,7 @@ const UpdateAttendance = (props) => {
       })
   }
   const getStudentsList = async () => {
-      await fetch(`https://schoolcool-backend-tov4.onrender.com/api/studentsByGrade/${grade}`)
+      await fetch(`${url}/api/studentsByGrade/${grade}`)
       .then((response) => {
           return response.json()
       })
@@ -47,7 +48,7 @@ const UpdateAttendance = (props) => {
     const updateAttendance = async () => {
 
       try {
-        const response = await fetch("https://schoolcool-backend-tov4.onrender.com/teacher/updateAttendance", {
+        const response = await fetch(`${url}/teacher/updateAttendance`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

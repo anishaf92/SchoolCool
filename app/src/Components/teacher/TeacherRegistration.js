@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom';
 
 const TeacherRegistration = () => {
   const navigate = useNavigate ();
+  const url = process.env.REACT_APP_BASE_URL;
   const [subjectList, setSubjectList] = useState ([]);
   const [passwordError, setPasswordError] = useState(false)
   const [emailError, setEmailError] = useState(false)
@@ -40,7 +41,7 @@ const TeacherRegistration = () => {
   }
 
   useEffect (() => {
-    fetch ('https://schoolcool-backend-tov4.onrender.com/teacher/getuniquesubjects')
+    fetch (`${url}/teacher/getuniquesubjects`)
       .then (response => {
         console.log (response);
         return response.json ();
@@ -49,6 +50,7 @@ const TeacherRegistration = () => {
         console.log (data);
         setSubjectList (data);
       });
+      // eslint-disable-next-line
   }, []);
 
   function checkEmail(email){
@@ -100,7 +102,7 @@ const TeacherRegistration = () => {
     event.preventDefault();
     console.log(teacherDetails)
     if (validateForm()){
-      await fetch('https://schoolcool-backend-tov4.onrender.com/teacher/register', {
+      await fetch(`${url}/teacher/register`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

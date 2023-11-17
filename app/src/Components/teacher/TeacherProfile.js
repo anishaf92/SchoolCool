@@ -20,6 +20,7 @@ const TeacherProfile = () => {
   const [address,setAddress] = useState(teacher.address);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const url = process.env.REACT_APP_BASE_URL;
   function checkEmail(email){
     // eslint-disable-next-line
     const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\\@][a-z]{3,9}[\.][a-z]{2,5}/g;
@@ -68,7 +69,7 @@ const TeacherProfile = () => {
     if(validateForm()){
     
     try {
-        const response = await fetch(`https://schoolcool-backend-tov4.onrender.com/teacher/updateInfo/${teacher._id}`, {
+        const response = await fetch(`${url}/teacher/updateInfo/${teacher._id}`, {
           method: 'PATCH',
           headers: {
             'Accept': 'application/json',

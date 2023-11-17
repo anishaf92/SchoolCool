@@ -11,8 +11,9 @@ const ViewMarks = (props) => {
   const [selectedExam, setSelectedExam] = useState("");
   const [subjects,setSubjects] =  useState([])
   const student = useSelector((state) => state.student.student);
+  const url = process.env.REACT_APP_BASE_URL;
   const getSubjectsByGrade = async () => {
-    await fetch(`https://schoolcool-backend-tov4.onrender.com/api/subjectsByGrade/${student.grade}`)
+    await fetch(`${url}/api/subjectsByGrade/${student.grade}`)
       .then((response) => {
         return response.json();
       })

@@ -8,19 +8,20 @@ const EditSubject = () => {
   const [grade,setGrade] = useState("")
   const [subjectList,setSubjectList] = useState([])
   const [refresh, setRefresh] = useState(false);
-  const grades = [1,2,3,4,5,6,7,8,9,10]
+  const grades = [1,2,3,4,5,6,7,8,9,10,11,12]
+  const url = process.env.REACT_APP_BASE_URL;
   
   useEffect(() => {
-    fetch("https://schoolcool-backend-tov4.onrender.com/admin/getsubjects")
+    fetch(`${url}/admin/getsubjects`)
     .then((response) =>{
       console.log(response)
       return response.json();
       }).then(data => setSubjectList(data))
 
-    
+    // eslint-disable-next-line
   },[refresh]);
   const addSubject = async () => {
-    await fetch("https://schoolcool-backend-tov4.onrender.com/admin/addsubject", {
+    await fetch(`${url}/admin/addsubject`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -40,7 +41,7 @@ const EditSubject = () => {
 
   }
   const handleSubjectDelete = async(id) =>{
-    await fetch(`https://schoolcool-backend-tov4.onrender.com/admin/deletesubject/${id}`,{
+    await fetch(`${url}/admin/deletesubject/${id}`,{
       method:'DELETE',
       header:{'Authorization': `${token}`}
     })

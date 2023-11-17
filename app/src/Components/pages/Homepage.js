@@ -21,22 +21,22 @@ const Homepage = () => {
                 
             </div>
             <div className="card" onClick={e => navigate("/teacher")}>
-                <img className="card-img" src={teacher} alt="student" ></img>
+                <img className="card-img" src={teacher} alt="teacher" ></img>
                 <h3>Teacher </h3>
                 
             </div>
             <div className="card" onClick={e => navigate("/parentLogin")}>
-                <img className="card-img" src={parent} alt="student" ></img>
+                <img className="card-img" src={parent} alt="parent" ></img>
                 <h3>Parent</h3>
                 
             </div>
             <div className="card" onClick={e => navigate("/adminLogin")}>
-                <img className="card-img" src={admin} alt="student" ></img>
+                <img className="card-img" src={admin} alt="admin" ></img>
                 <h3>Admin</h3>
                 
             </div>
             <div className="card" onClick={e => navigate("/schoolDetails")}>
-                <img className="card-img" src={school} alt="student" ></img>
+                <img className="card-img" src={school} alt="school" ></img>
                 <h3>About school</h3>
                 
             </div>

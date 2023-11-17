@@ -27,6 +27,7 @@ const StudentRegistration = () => {
     const [phoneError, setPhoneError] = useState(false)
     const [refresh,setRefresh] = useState(true)
     const [registrationSuccess, setRegistrationSuccess] = useState(false);
+    const url = process.env.REACT_APP_BASE_URL;
    
   const navigate = useNavigate();
   function checkEmail(email){
@@ -75,12 +76,11 @@ const StudentRegistration = () => {
       event.preventDefault();
       console.log(studentDetails)
       if (validateForm()){
-        await fetch('https://schoolcool-backend-tov4.onrender.com/student/register', {
+        await fetch(`${url}/student/register`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'mode':'no-cors'
           },
           body: JSON.stringify(studentDetails)
         }).then((response) =>{

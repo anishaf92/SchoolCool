@@ -8,14 +8,14 @@ const sign = (obj) =>
 
     // Include the 'exp' claim in the payload
     obj.exp = expirationTime;
-    jwt.sign(obj, "chocolatemegadonut", (error, token) => {
+    jwt.sign(obj, process.env.jwtPrivateKey, (error, token) => {
       if (error) return reject(error);
       return resolve(token);
     });
   });
 const verify = (token) =>
   new Promise((resolve, reject) => {
-    jwt.verify(token, "chocolatemegadonut", (error) => {
+    jwt.verify(token,process.env.jwtPrivateKey, (error) => {
       if (error) return reject();
       return resolve({ success: true });
     });
@@ -114,6 +114,19 @@ export const loginStudent = async ({ admissionNo, password }) => {
 export const fetchAttendance = async (admissionNo) => {
   try{
   const attendanceData = Attendance.find({admissionNo:admissionNo});
+  console.log(attendanceData);
+  return attendanceData;
+  }
+  catch(error)
+{
+  return error
+}
+
+
+}
+export const fetchAttendanceBySubject = async (admissionNo,subject) => {
+  try{
+  const attendanceData = Attendance.find({admissionNo:admissionNo,subject:subject});
   console.log(attendanceData);
   return attendanceData;
   }

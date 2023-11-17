@@ -21,11 +21,11 @@ const app = express ();
 const server = http.createServer(app);
 const corsOptions = {
   origin: '*',
-  methods: ['GET', 'POST'],
+  methods: ['GET', 'POST','PATCH','DELETE'],
 };
 
 
-const PORT  = process.env.PORT || 3000;
+const PORT  =  6969;
 app.use(cors(corsOptions));
 
 app.use (express.urlencoded ({extended: true}));
@@ -57,12 +57,10 @@ app.use("/parent", parent);
 app.use("/",home)
 
 
-if(process.env.NODE.ENV == "production"){
-  app.use(express.static("app/build"));
-}
+
 
 server.listen(PORT, () => {
-  console.log ('listening');
+  console.log ('listening',PORT);
 })
 
 

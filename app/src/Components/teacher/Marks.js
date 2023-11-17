@@ -14,9 +14,10 @@ const Marks = () => {
   const [grade, setGrade] = useState(0);
   const [selectedExam, setSelectedExam] = useState("")
   const [success,setSuccess] = useState(false)
+  const url = process.env.REACT_APP_BASE_URL;
   const exams = ["midTerm1","midTerm2","midTerm3","quarterly","halfYearly","finalExam"]; 
 const getSubjects = async () =>{
-  await fetch("https://schoolcool-backend-tov4.onrender.com/teacher/getSubjects", {
+  await fetch(`${url}/teacher/getSubjects`, {
   method: 'POST', 
   headers: {
     'Content-Type': 'application/json',
@@ -32,7 +33,9 @@ const getSubjects = async () =>{
     })
 }
 const getStudentsList = async () => {
-    await fetch(`https://schoolcool-backend-tov4.onrender.com/api/studentsByGrade/${grade}`)
+  setSuccess(false);
+  setMarks([])
+    await fetch(`${url}/api/studentsByGrade/${grade}`)
     .then((response) => {
         return response.json()
     })
@@ -62,7 +65,7 @@ const handleMarkChange = (studentId, value) => {
     };
 
     try {
-      const response = await fetch("https://schoolcool-backend-tov4.onrender.com/teacher/updateMarks", {
+      const response = await fetch(`${url}/teacher/updateMarks`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

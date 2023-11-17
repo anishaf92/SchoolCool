@@ -16,6 +16,7 @@ const TeacherLogin = () => {
   const {
     setAuthUser,
     setIsLoggedIn } = useAuth();
+    const url = process.env.REACT_APP_BASE_URL;
   
 
   async function handleSubmit (e) {
@@ -23,7 +24,7 @@ const TeacherLogin = () => {
     console.log("inside handle submit")
     console.log({empNo:empNo,password:password})
       try {
-        const response = await fetch(`https://schoolcool-backend-tov4.onrender.com/teacher/login`, {
+        const response = await fetch(`${url}/teacher/login`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',

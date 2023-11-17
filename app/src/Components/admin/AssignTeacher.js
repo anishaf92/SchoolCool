@@ -15,17 +15,18 @@ const AssignTeacher = () => {
     const [teacherList,setTeacherList] = useState([])
     const [teacher,setTeacher] = useState(0)
     const [refresh,setRefresh] = useState(true)
-    const grades = [1,2,3,4,5,6,7,8,9,10]
-    
+    const grades = [1,2,3,4,5,6,7,8,9,10,11,12]
+    const url = process.env.REACT_APP_BASE_URL;
     const getSubjects = async () => {
-        await fetch("https://schoolcool-backend-tov4.onrender.com/admin/getsubjects")
+      
+        await fetch(`${url}/admin/getsubjects`)
         .then((response) =>{
           console.log(response)
           return response.json();
           }).then(data => setSubjectList(data)) 
     } 
     const getTeachers = async () => {
-        await fetch("https://schoolcool-backend-tov4.onrender.com/teacher/getteachers")
+        await fetch(`${url}/teacher/getteachers`)
         .then((response) =>{
           console.log(response)
           return response.json();
@@ -47,11 +48,13 @@ const AssignTeacher = () => {
     }
     const updateTeacherData = async (id) =>{
       console.log("inside update",id,teacher)
-      await fetch(`https://schoolcool-backend-tov4.onrender.com/teacher/updateTeacher/${teacher}`, {
+      await fetch(`${url}/teacher/updateTeacher/${teacher}`, {
         method: 'PATCH',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
+          'Authorization': `${token}`
+          
         },
         body: JSON.stringify({subjectId:id})})
         .then((response) =>{
@@ -64,7 +67,7 @@ const AssignTeacher = () => {
 
     }
     const assignTeacher = async (id) => {
-      await fetch("https://schoolcool-backend-tov4.onrender.com/teacher/update", {
+      await fetch(`${url}/teacher/update`, {
         method: 'PATCH',
         headers: {
           'Accept': 'application/json',

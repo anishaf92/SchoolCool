@@ -7,13 +7,15 @@ const AnnouncementsPerPage = 3;
 const GetAnnouncements = () => {
   const [announcementList, setAnnouncementList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const url = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
-    fetch("https://schoolcool-backend-tov4.onrender.com/admin/getannouncements")
+    fetch(`${url}/admin/getannouncements`)
       .then((response) => response.json())
       .then((data) => {
         setAnnouncementList(data);
       });
+      //eslint-disable-next-line  
   }, []);
 
   // Calculate the range of announcements to display for the current page

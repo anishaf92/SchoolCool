@@ -7,6 +7,7 @@ import '../../Css/login.css';
 import useAuth from '../auth/AuthContext';
 
 const AdminLogin = () => {
+  const url = process.env.REACT_APP_BASE_URL;
   const [userName, setUserName] = useState ('');
   const [password, setPassword] = useState ('');
   const [error, setError] = useState (false);
@@ -23,10 +24,10 @@ const AdminLogin = () => {
     try {
       console.log (userName, password);
       if (validateForm ()) {
-        await fetch ('https://schoolcool-backend-tov4.onrender.com/admin/login', {
+        await fetch (`${url}/admin/login`, {
           method: 'POST',
           headers: {
-            Accept: 'application/json',
+            'Accept': 'application/json',
             'Content-Type': 'application/json',
           },
           body: JSON.stringify ({userName: userName, password: password}),

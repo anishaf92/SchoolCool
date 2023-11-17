@@ -4,6 +4,7 @@ import "../../Css/registration.css";
 
 
 const ParentRegistration = () => {
+    const url = process.env.REACT_APP_BASE_URL;
     const [parentDetails,setParentDetails] = useState({
         admissionNo:"",
         name:"",
@@ -57,12 +58,11 @@ const ParentRegistration = () => {
       console.log(parentDetails)
       
       if (validateForm()){
-        await fetch('https://schoolcool-backend-tov4.onrender.com/parent/register', {
+        await fetch(`${url}/parent/register`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'mode':'no-cors'
           },
           body: JSON.stringify(parentDetails)
         }).then((response) =>{

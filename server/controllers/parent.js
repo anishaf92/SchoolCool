@@ -7,14 +7,14 @@ const sign = (obj) =>
 
     // Include the 'exp' claim in the payload
     obj.exp = expirationTime;
-    jwt.sign(obj, "chocolatemegadonut", (error, token) => {
+    jwt.sign(obj, process.env.jwtPrivateKey, (error, token) => {
       if (error) return reject(error);
       return resolve(token);
     });
   });
 const verify = (token) =>
   new Promise((resolve, reject) => {
-    jwt.verify(token, "chocolatemegadonut", (error) => {
+    jwt.verify(token, process.env.jwtPrivateKey, (error) => {
       if (error) return reject();
       return resolve({ success: true });
     });

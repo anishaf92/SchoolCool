@@ -14,6 +14,7 @@ const StudentLogin = () => {
   const navigate =useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
+  const url = process.env.REACT_APP_BASE_URL;
   
   const registrationSuccess = location.state?.registrationSuccess;
   const {
@@ -26,7 +27,7 @@ const StudentLogin = () => {
     console.log({admissionNo:admissionNo,password:password})
 
       try {
-        const response = await fetch('https://schoolcool-backend-tov4.onrender.com/student/login', {
+        const response = await fetch(`${url}/student/login`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',

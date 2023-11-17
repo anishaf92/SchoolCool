@@ -24,14 +24,13 @@ router
 router
   .get("/getteachers", getTeachers);
 router
-  .route("/update")
-  .patch(updateSubject);
+  .patch("/update",verifyAdminToken,updateSubject);
 
 router
   .route("/updateTeacher/:id")
   .patch(updateTeacher);
 router
-  .patch("/updateTeacherInfo/:id",verifyToken, updateTeacherInfo);
+  .patch("/updateInfo/:id",verifyToken, updateTeacherInfo);
 router
   .get("/get/:id",getTeacher)
 router

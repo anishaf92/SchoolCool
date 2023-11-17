@@ -16,6 +16,7 @@ const ParentLogin = () => {
   const navigate =useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
+  const url = process.env.REACT_APP_BASE_URL;
   const registrationSuccess = location.state?.registrationSuccess;
 
   const {
@@ -24,7 +25,7 @@ const ParentLogin = () => {
     async function fetchStudent(admissionNo,token){
       console.log(admissionNo)
     try{
-      await fetch(`https://schoolcool-backend-tov4.onrender.com/student/getDetails/${admissionNo}`)
+      await fetch(`${url}/student/getDetails/${admissionNo}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data.student)
@@ -44,7 +45,7 @@ const ParentLogin = () => {
     console.log({mobileNo:mobileNo,password:password})
 
       try {
-        const response = await fetch('https://schoolcool-backend-tov4.onrender.com/parent/login', {
+        const response = await fetch(`${url}/parent/login`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',

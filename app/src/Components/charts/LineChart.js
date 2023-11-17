@@ -1,7 +1,11 @@
 import React from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from "recharts";
+import { Chart, registerables} from 'chart.js';
+
+
 
 const LineChartComponent = ({ marksData, selectedSubject, exams }) => {
+  Chart.register(...registerables);
   const data = exams.map((exam) => {
     const markData = marksData[exam].find((subject) => subject.subject === selectedSubject);
     return {
@@ -19,17 +23,16 @@ const LineChartComponent = ({ marksData, selectedSubject, exams }) => {
   return (
     <LineChart width={400} height={300} data={filteredData}>
       <XAxis dataKey="exam">
-        <Label value="Exam" offset={0} position="insideBottom" />
+        <Label value="Exam Period" offset={0} position="insideBottom" />
       </XAxis>
       <YAxis>
-        <Label angle={-90} position="insideLeft" />
+        <Label value="Marks" angle={-90} position="insideLeft" />
       </YAxis>
       <CartesianGrid strokeDasharray="3 3" />
       <Tooltip />
       <Legend content={null} />
       <Line type="monotone" dataKey="mark" name="Marks" stroke="#8884d8" />
     </LineChart>
-    
   );
 };
 
